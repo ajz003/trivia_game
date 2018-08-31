@@ -3,6 +3,7 @@ $(document).ready(function() {
 var clockRunning = false;
 var timeRemaining = 15;
 var index = 0;
+var count = 0;
 var correct = 0;
 var incorrect = 0;
 
@@ -33,28 +34,32 @@ var questions = [
         q: "Which is an ingredient in 'creme brulee'? <br> <img src='assets/images/creme_brulee.jpg'>",
         o: ["molasses", "cream", "flour", "egg whites"],
         a: "cream"
+    },
+    {
+        q: "useless",
+        o: "also useless",
+        a: "very useless"
     }
 ]
 
-// checks if guess is correct or wrong
+// checks if guess is correct or wrong 
 $(".options").click(function(){
     var guess = $(this).text();
     reset();
-
-    if (index === questions.length - 1) {
-        gameOver();
-    }
     if (guess === questions[index].a) {
         index++;
         correct++;
-        game();
         alert("correct!");
+        game();   
     }
     else {
-        alert("wrong");
         index++;
         incorrect++;
+        alert("wrong");
         game();
+    }
+    if (index === 5) {
+        total();
     }
 })
 
@@ -66,6 +71,11 @@ $("#optionC").html(questions[index].o[2]);
 $("#optionD").html(questions[index].o[3]);
 }   
 
+function total() {
+    $("body").empty();
+    $("body").html("correct: " + correct + "<br>" + "incorrect: " + incorrect);
+}
+
 function gameOver() {
     if (timeRemaining === 0) {
         stop();
@@ -73,8 +83,6 @@ function gameOver() {
         body.empty();
         body.css("background-image", "url('assets/images/you_died.png')");
         body.css("left", "50%");
-        console.log(correct);
-        console.log(incorrect);
 }};
 
 function start() {
