@@ -3,7 +3,7 @@ $(document).ready(function() {
 var clockRunning = false;
 var timeRemaining = 15;
 var index = 0;
-var count = 0;
+// 
 var correct = 0;
 var incorrect = 0;
 
@@ -89,6 +89,7 @@ function start() {
     if (!clockRunning) {
         intervalId = setInterval(count, 1000);
         clockRunning = true;
+        console.log(timeRemaining)
 }
 }
   
@@ -102,7 +103,13 @@ function reset() {
     $("#timeRemaining").text(timeRemaining);  
 }
 
+function test() {
+    console.log("test")
+}
+
 function count() {
+    console.log(timeRemaining)
+    console.log("Made it to count")
     timeRemaining--;
     $("#timeRemaining").text(timeRemaining);
     gameOver();
@@ -110,5 +117,7 @@ function count() {
 
 game();
 start();
+
+console.log(timeRemaining)
 
 })
