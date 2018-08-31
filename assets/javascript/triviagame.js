@@ -89,7 +89,6 @@ function start() {
     if (!clockRunning) {
         intervalId = setInterval(count, 1000);
         clockRunning = true;
-        console.log(timeRemaining)
 }
 }
   
@@ -108,8 +107,6 @@ function test() {
 }
 
 function count() {
-    console.log(timeRemaining)
-    console.log("Made it to count")
     timeRemaining--;
     $("#timeRemaining").text(timeRemaining);
     gameOver();
@@ -117,7 +114,5 @@ function count() {
 
 game();
 start();
-
-console.log(timeRemaining)
 
 })
