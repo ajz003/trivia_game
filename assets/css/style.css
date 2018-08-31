@@ -1,7 +1,9 @@
 body {
     text-align: center;
-    background-image: url("../images/backdrop.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background: no-repeat;
+}
+
+img {
+    padding:2px;
+    background-color: blue; 
 }
